@@ -14,7 +14,11 @@ public class DeviceMap {
     public DcMotor  rightFront = null;
     public Servo flipper =null;
     public DistanceSensor distanceSensor;
+    public DcMotor liftMotor =null;
 
+    public static final double MID_SERVO       =  0.5 ;
+    public static final double LIFT_UP_POWER    =  0.45 ;
+    public static final double LIFT_DOWN_POWER  = -0.45 ;
     HardwareMap hwMap =null;
     private ElapsedTime period = new ElapsedTime();
 
@@ -26,6 +30,7 @@ public void init(HardwareMap hwMap)
     leftRear    = hwMap.get(DcMotor.class,"leftRear");
     rightFront  = hwMap.get(DcMotor.class,"rightFront");
     rightRear   = hwMap.get(DcMotor.class,"rightRear");
+    liftMotor   =hwMap.get(DcMotor.class,"liftMotor");
 
     Rev2mDistanceSensor sensorTOF = (Rev2mDistanceSensor) distanceSensor;
 
@@ -33,6 +38,7 @@ public void init(HardwareMap hwMap)
     leftRear.setPower(0);
     rightFront.setPower(0);
     rightRear.setPower(0);
+    liftMotor.setPower(0);
 
     leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     leftRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -40,5 +46,8 @@ public void init(HardwareMap hwMap)
     rightRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
     flipper = hwMap.get(Servo.class,"flipper");
+
+   flipper.setPosition(MID_SERVO);
+
 }
 }

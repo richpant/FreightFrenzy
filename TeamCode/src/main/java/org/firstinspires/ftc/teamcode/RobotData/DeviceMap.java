@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.RobotData;
 
 import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -31,6 +32,8 @@ public void init(HardwareMap hwMap)
     rightFront  = hwMap.get(DcMotor.class,"rightFront");
     rightRear   = hwMap.get(DcMotor.class,"rightRear");
     liftMotor   =hwMap.get(DcMotor.class,"liftMotor");
+    rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+    rightRear.setDirection(DcMotorSimple.Direction.REVERSE);
 
     Rev2mDistanceSensor sensorTOF = (Rev2mDistanceSensor) distanceSensor;
 

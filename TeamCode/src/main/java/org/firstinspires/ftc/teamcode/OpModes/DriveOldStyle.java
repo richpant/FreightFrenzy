@@ -29,8 +29,8 @@ public class DriveOldStyle extends OpMode {
         rightRear = hardwareMap.get(DcMotor.class, "rightRear");
         flipper = hardwareMap.get(Servo.class,"flipper");
         liftMotor = hardwareMap.get(DcMotor.class,"liftMotor");
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightRear.setDirection(DcMotorSimple.Direction.REVERSE);
+       // rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+       // rightRear.setDirection(DcMotorSimple.Direction.REVERSE);
         telemetry.addData("Say", "Hello Driver");
     }
     @Override
